@@ -19,6 +19,13 @@ namespace TifToPng
 
             string filePath = args[0];
 
+            bool hasTifExtension = Path.GetExtension(filePath) == ".tif";
+            if (!hasTifExtension)
+            {
+                Console.WriteLine("Only tif files can be supplied as an argument");
+                return;
+            }
+
             bool fileExists = File.Exists(filePath);
             if (fileExists)
             {
