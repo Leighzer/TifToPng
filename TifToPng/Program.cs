@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Drawing;
 
 namespace TifToPng
 {
@@ -11,7 +10,7 @@ namespace TifToPng
         {
             List<string> args = new List<string>(argsArray);
 
-            if(args.Count < 1)
+            if (args.Count < 1)
             {
                 Console.WriteLine("Not enough arguments supplied");
                 return;
@@ -39,7 +38,7 @@ namespace TifToPng
                 {
                     Console.WriteLine("Tif to png translation failed");
                 }
-                
+
             }
             else
             {
