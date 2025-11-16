@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ImageMagick;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -30,8 +31,11 @@ namespace TifToPng
             {
                 try
                 {
-                    string newfilePath = Path.ChangeExtension(filePath, ".png");
-                    System.Drawing.Bitmap.FromFile(filePath).Save(newfilePath, System.Drawing.Imaging.ImageFormat.Png);
+                    string newFilePath = Path.ChangeExtension(filePath, ".png");
+                    using (var image = new MagickImage(filePath))
+                    {
+                        image.Write(newFilePath); // Magick.NET detects output format from extension
+                    }
                     Console.WriteLine("Success! Png created!");
                 }
                 catch
